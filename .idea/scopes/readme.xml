@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="readme" pattern="file[truenas-unlock-dataset-once-after-each-boot]:readme//*" />
+</component>
