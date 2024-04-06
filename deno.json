@@ -1,0 +1,17 @@
+{
+  "tasks": {
+    "all": "         deno fmt && deno lint && deno task check        && deno task readme && deno task test          && deno task coverage         ",
+    "all-reload": "  deno fmt && deno lint && deno task check-reload && deno task readme && deno task test --reload && deno task coverage --reload",
+    "check": "       deno task foreach-file -- deno check          '{}'",
+    "check-reload": "deno task foreach-file -- deno check --reload '{}'",
+    "test": "        deno test --coverage --allow-run --allow-env=VERBOSE --allow-write=test.db --allow-read=test.db",
+    "coverage": "    deno coverage",
+    "readme": "      ./readme/generate-readme.ts readme/README.md > README.md && deno fmt README.md",
+    "release": "     deno task all && test -z \"$(git status --porcelain)\" && GITHUB_TOKEN=$(gh auth token) deno run --allow-env=GITHUB_TOKEN --allow-net=api.github.com --allow-run=bash https://deno.land/x/shipit@0.6.1/shipit.ts",
+    "udd": "         deno task foreach-file -- deno run --allow-read=. --allow-write=. --allow-net --allow-run=deno https://deno.land/x/udd@0.8.2/main.ts --test \"deno task all\" '{}'",
+    "udd-no-test": " deno task foreach-file -- deno run --allow-read=. --allow-write=. --allow-net --allow-run=deno https://deno.land/x/udd@0.8.2/main.ts                          '{}'",
+    "list-files": "  deno eval 'console.log((await (await import(\"https://deno.land/x/run_simple/mod.ts\")).run(\"git ls-files\")).split(\"\\n\").filter(f=>/\\.((mj|j|t)sx?|jsonc?)$/.test(f)).filter(f=>{try{return !Deno.statSync(f).isDirectory}catch{}}).join(\"\\n\"))'",
+    "foreach-file": "deno task list-files | sh -c 'xargs -I {} -- \"$@\"'"
+  },
+  "lock": false
+}
