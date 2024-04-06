@@ -6,7 +6,7 @@
     "check-reload": "deno task foreach-file -- deno check --reload '{}'",
     "test": "        deno test --coverage --allow-run --allow-env=VERBOSE --allow-write=test.db --allow-read=test.db",
     "coverage": "    deno coverage",
-    "readme": "      ./readme/generate-readme.ts readme/README.md > README.md && deno fmt README.md",
+    "readme": "      chmod +w README.md && ./readme/generate-readme.ts readme/README.md > README.md && deno fmt README.md; chmod -w README.md",
     "release": "     deno task all && test -z \"$(git status --porcelain)\" && GITHUB_TOKEN=$(gh auth token) deno run --allow-env=GITHUB_TOKEN --allow-net=api.github.com --allow-run=bash https://deno.land/x/shipit@0.6.1/shipit.ts",
     "udd": "         deno task foreach-file -- deno run --allow-read=. --allow-write=. --allow-net --allow-run=deno https://deno.land/x/udd@0.8.2/main.ts --test \"deno task all\" '{}'",
     "udd-no-test": " deno task foreach-file -- deno run --allow-read=. --allow-write=. --allow-net --allow-run=deno https://deno.land/x/udd@0.8.2/main.ts                          '{}'",
