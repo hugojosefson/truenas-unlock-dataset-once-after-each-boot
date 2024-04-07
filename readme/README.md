@@ -33,6 +33,7 @@ secure**, for example your laptop.
 - `/bin/sh`
 - `unzip`
 - `curl`
+- `ssh` client
 
 ### On your TrueNAS SCALE server
 
