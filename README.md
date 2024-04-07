@@ -17,11 +17,13 @@ secure**, for example your laptop.
   - You may pipe the passphrase from a command, instead.
 - Unlocks the dataset only once after each server boot.
   - If you manually lock the dataset, you probably did it on purpose, so it
-    won't auto-unlock immediately.
-  - If you reboot the server, the dataset it will unlock it again.
+    won't auto-unlock until reboot.
+  - If you reboot the server, it will unlock it again.
 - Runs any executable `.unlockrc` file in the unlocked dataset's root directory,
-  if present. It should be idempotent, because it will also run if this script
-  starts and sees the dataset already unlocked.
+  if present. You should make that script
+  [idempotent](https://en.wikipedia.org/wiki/Idempotence), so it's OK to run it
+  many times. To be precise, it will run `.unlockrc` if this script starts and
+  finds the dataset already unlocked from the get-go.
 - Afterwards, waits for the next reboot, and runs again.
 
 ## Requirements
