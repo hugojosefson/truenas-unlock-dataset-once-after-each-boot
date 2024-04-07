@@ -61,6 +61,7 @@ Examples below assume:
 
 - Server IP is `10.20.30.40`,
 - Account that can run `cli` in the server, is named `admin`.
+- Dataset to unlock is named `tank`.
 
 ### Manual passphrase entry
 
