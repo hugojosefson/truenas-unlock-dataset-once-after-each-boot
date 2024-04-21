@@ -4,13 +4,13 @@ import {
 } from "https://deno.land/x/fns@1.1.1/string/regex.ts";
 import { matches } from "https://deno.land/x/fns@1.1.1/string/string-type-guard.ts";
 
-import { truenasCliViaSsh } from "./truenas-cli-via-ssh.ts";
+import { runViaSshTruenasCli } from "./run-via-ssh-truenas-cli.ts";
 
 export async function isDatasetLocked(
   datasetId: string,
   sshArgsAndUserAtHost: string[],
 ): Promise<boolean> {
-  return (await truenasCliViaSsh(
+  return (await runViaSshTruenasCli(
     sshArgsAndUserAtHost,
     "storage dataset query id,locked",
   ))

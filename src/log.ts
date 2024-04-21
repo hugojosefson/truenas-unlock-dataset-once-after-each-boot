@@ -1,13 +1,18 @@
 import { getCurrentTime } from "./get-current-time.ts";
 
+export function timestampMessage(message = ""): string {
+  const timestampedMessages = message
+    .split("\n")
+    .map((m) => `${getCurrentTime()} ${m}`);
+  return timestampedMessages.join("\n");
+}
+
 export function log(message = ""): void {
-  console.error(`${getCurrentTime()} ${message}`);
+  console.error(timestampMessage(message));
 }
 
 export function logNoNewline(message = ""): void {
-  Deno.stderr.writeSync(
-    new TextEncoder().encode(`${getCurrentTime()} ${message}`),
-  );
+  logNoTimestampNoNewline(timestampMessage(message));
 }
 
 export function logNoTimestamp(message = ""): void {

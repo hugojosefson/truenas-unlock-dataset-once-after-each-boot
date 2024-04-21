@@ -1,5 +1,6 @@
 import { getDatasetMountpoint } from "./get-dataset-mountpoint.ts";
 import { log, logNoTimestamp } from "./log.ts";
+import { runViaSshAsRootInBackground } from "./run-via-ssh-as-root-in-background.ts";
 import { runViaSsh } from "./run-via-ssh.ts";
 
 export async function runAnyDotUnlockrcInDataset(
@@ -41,7 +42,7 @@ export async function runAnyDotUnlockrcInDataset(
 
   log(`Executing "${unlockrcPath}"...`);
   logNoTimestamp(
-    await runViaSsh(
+    await runViaSshAsRootInBackground(
       sshArgsAndUserAtHost,
       unlockrcPath,
     ),
