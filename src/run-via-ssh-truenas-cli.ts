@@ -1,8 +1,8 @@
-import type { ParseOptions } from "https://deno.land/std@0.222.1/csv/parse.ts";
+import type { ParseOptions } from "https://deno.land/std@0.224.0/csv/parse.ts";
 import { quoteForShell } from "./escape-single-quote-for-shell.ts";
 import { runViaSsh } from "./run-via-ssh.ts";
-import { parsePart } from "https://raw.githubusercontent.com/hugojosefson/incus-app-container/12-jailmaker/src/incus-app-container-files/truenas/parse-part.ts";
-import { parseCsv } from "https://raw.githubusercontent.com/hugojosefson/incus-app-container/12-jailmaker/src/incus-app-container-files/deps.ts";
+import { parsePart } from "https://raw.githubusercontent.com/hugojosefson/incus-app-container/main/src/incus-app-container-files/truenas/parse-part.ts";
+import { parseCsv } from "https://raw.githubusercontent.com/hugojosefson/incus-app-container/main/src/incus-app-container-files/deps.ts";
 
 export async function runViaSshTruenasCli(
   sshArgsAndUserAtHost: string[],

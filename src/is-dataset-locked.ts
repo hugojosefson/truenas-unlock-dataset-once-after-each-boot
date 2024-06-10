@@ -1,8 +1,8 @@
 import {
   sequence,
   startWith,
-} from "https://deno.land/x/fns@1.1.1/string/regex.ts";
-import { matches } from "https://deno.land/x/fns@1.1.1/string/string-type-guard.ts";
+} from "https://deno.land/x/fns@2.0.1/string/regex.ts";
+import { matches } from "https://deno.land/x/fns@2.0.1/string/string-type-guard.ts";
 
 import { runViaSshTruenasCli } from "./run-via-ssh-truenas-cli.ts";
 
